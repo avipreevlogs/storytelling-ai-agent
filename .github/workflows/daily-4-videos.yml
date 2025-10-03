@@ -2,15 +2,12 @@ name: Daily 4 Storytelling Videos
 
 on:
   schedule:
-    - cron: "30 3 * * *"   # सुबह 9:00 AM IST
-    - cron: "30 7 * * *"   # दोपहर 1:00 PM IST
-    - cron: "30 11 * * *"  # शाम 5:00 PM IST
-    - cron: "30 15 * * *"  # रात 9:00 PM IST
-  workflow_dispatch:
+    - cron: "0 */6 * * *"   # हर 6 घंटे में run होगा (दिन में 4 बार)
+  workflow_dispatch:        # Manual run का button भी मिलेगा
 
 jobs:
   build:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout Repo
@@ -23,10 +20,17 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install -r requirements.txt
+          python -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+
+      - name: Show repo files
+        run: ls -R
 
       - name: Run Storytelling Script
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           GOOGLE_CLIENT_SECRET: ${{ secrets.GOOGLE_CLIENT_SECRET }}
-        run: python storyteller_youtube_agent.py
+          YOUTUBE_CHANNEL_ID: ${{ secrets.YOUTUBE_CHANNEL_ID }}
+        run: |
+          echo "Starting storytelling automation..."
+          python storyteller_youtube_agent.py
