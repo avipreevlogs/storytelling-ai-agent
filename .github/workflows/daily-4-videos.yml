@@ -2,8 +2,8 @@ name: Daily 4 Storytelling Videos
 
 on:
   schedule:
-    - cron: "0 */6 * * *"   # हर 6 घंटे में run होगा
-  workflow_dispatch:        # Manual run का option
+    - cron: "0 */6 * * *"
+  workflow_dispatch:
 
 jobs:
   build:
@@ -21,7 +21,7 @@ jobs:
     - name: Install Dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install -r requirements.txt
+        pip install moviepy pyttsx3 google-api-python-client google-auth-oauthlib google-auth-httplib2
 
     - name: Restore YouTube Token
       run: |
