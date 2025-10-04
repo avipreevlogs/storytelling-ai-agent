@@ -1,4 +1,5 @@
 moviepy
 pyttsx3
 google-api-python-client
-Pillow
+google-auth-oauthlib
+google-auth-httplib2
