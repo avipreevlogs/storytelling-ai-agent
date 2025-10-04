@@ -1,6 +1,4 @@
-openai
-gTTS
 moviepy
-google-auth
-google-auth-oauthlib
+pyttsx3
 google-api-python-client
+Pillow
