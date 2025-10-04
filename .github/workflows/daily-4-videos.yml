@@ -34,3 +34,4 @@ jobs:
         run: |
           echo "Starting storytelling automation..."
           python storyteller_youtube_agent.py
+
