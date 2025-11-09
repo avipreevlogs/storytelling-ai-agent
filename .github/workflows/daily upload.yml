@@ -75,10 +75,9 @@ jobs:
           
           echo "Validation complete. Proceeding..."
         env:
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-          GOOGLE_CLIENT_SECRET: ${{ secrets.GOOGLE_CLIENT_SECRET }}
-          YOUTUBE_CHANNEL_ID: ${{ secrets.YOUTUBE_CHANNEL_ID }}
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+          OPENAI_API_KEY: ${{ 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}}
+          GOOGLE_CLIENT_SECRET: ${{ 268318780453-b5ovmj9ahctugmvfjfeqj2sd23k31hi0.apps.googleusercontent.com","project_id":"storyteller-473511","auth_uri":"https://accounts.google.com/o/oauth2/auth","token_uri":"https://oauth2.googleapis.com/token","auth_provider_x509_cert_url":"https://www.googleapis.com/oauth2/v1/certs","client_secret":"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} }}
+          YOUTUBE_CHANNEL_ID: ${{ @avipreevlogs }
 
       # Step 6: Run script or simulate (always succeeds)
       - name: Run Storytelling Automation
@@ -109,4 +108,5 @@ jobs:
           status: failure
           text: "GitHub Actions alert for Daily Storytelling Videos: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
         env:
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+
+        
